@@ -1,0 +1,54 @@
+<ion-header translucent>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      Pokedex App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+/* Projeto realizado com auxílio da aluna Fernanda Pintucci */
+
+<ion-content fullscreen color="dark">
+  <ion-searchbar placeholder="Buscar Pokemons" color="medium"></ion-searchbar>
+
+  <ion-item-sliding *ngFor="let pokemon of listaPokemonExibir">
+    <ion-item color="dark">
+      <ion-badge slot="start">
+        <ion-label color="dark">{{pokemon.id}}</ion-label>
+      </ion-badge>
+
+      <ion-label>
+        <div *ngFor="let nome of pokemon.forms">
+          <h4>{{pokemon.name}}</h4>
+          <ion-chip [color]="tipo.type.name" *ngFor="let tipo of pokemon.types">{{tipo.type.name}}</ion-chip>
+        </div>
+      </ion-label>
+
+      <ion-thumbnail slot="end">
+        <img [src]="pokemon.sprites.front_default">
+      </ion-thumbnail>
+
+    </ion-item>
+  </ion-item-sliding>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="tertiary" class="ion-text-center">
+
+    <ion-buttons slot="start" *ngIf="pagina > 1">
+      <ion-button (click)="buscarPokemons(pagina - 1)">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    Página: {{pagina}}
+
+    <ion-buttons slot="end" *ngIf="pagina < totalPaginas">
+      <ion-button (click)="buscarPokemons(pagina + 1)">
+        <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
