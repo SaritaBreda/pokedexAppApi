@@ -6,21 +6,19 @@
   </ion-toolbar>
 </ion-header>
 
-/* Projeto realizado com auxílio da aluna Fernanda Pintucci */
-
 <ion-content fullscreen color="dark">
   <ion-searchbar placeholder="Buscar Pokemons" color="medium"></ion-searchbar>
 
   <ion-item-sliding *ngFor="let pokemon of listaPokemonExibir">
     <ion-item color="dark">
-      <ion-badge slot="start">
-        <ion-label color="dark">{{pokemon.id}}</ion-label>
-      </ion-badge>
+      <ion-chip slot="start">
+        <ion-label color="tertiary">{{pokemon.id}}</ion-label>
+      </ion-chip>
 
       <ion-label>
         <div *ngFor="let nome of pokemon.forms">
-          <h4>{{pokemon.name}}</h4>
-          <ion-chip [color]="tipo.type.name" *ngFor="let tipo of pokemon.types">{{tipo.type.name}}</ion-chip>
+          <h4>{{nome.name}}</h4>
+          <ion-badge [color]="tipo.type.name" *ngFor="let tipo of pokemon.types">{{tipo.type.name}}</ion-badge>
         </div>
       </ion-label>
 

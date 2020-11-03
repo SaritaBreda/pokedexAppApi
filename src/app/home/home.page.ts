@@ -7,6 +7,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['home.page.scss'],
 })
 
+/* Projeto realizado com auxílio da aluna Fernanda Pintucci */
+
 export class HomePage {
 
   public listaPokemonExibir: any = [];
